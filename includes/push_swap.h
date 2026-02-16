@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 17:41:21 by abarrio           #+#    #+#             */
-/*   Updated: 2026/02/15 21:15:53 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/02/16 12:51:26 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-# include "../libft/libft.h"
+# include "../libft/includes/libft.h"
 
 typedef struct s_stack
 {
