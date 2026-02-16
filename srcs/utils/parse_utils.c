@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 14:03:52 by abarrio           #+#    #+#             */
-/*   Updated: 2026/02/16 14:56:59 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/02/16 17:12:36 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ t_stack	*parse_split_args(char **split)
 	int		i;
 
 	stack = NULL;
-	i = -1;
-	while (split[++i])
+	i = 0;
+	while (split[i])
 	{
 		if (!validate_number(split[i]) || !ft_atol(split[i], &num))
 			return (free_split(split), free_stack(&stack), NULL);
@@ -44,6 +44,7 @@ t_stack	*parse_split_args(char **split)
 		if (!new)
 			return (free_split(split), free_stack(&stack), NULL);
 		ft_lstadd_back((t_list **)&stack, (t_list *)new);
+		i++;
 	}
 	free_split(split);
 	return (stack);
