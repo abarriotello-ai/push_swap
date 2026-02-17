@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 12:56:02 by abarrio           #+#    #+#             */
-/*   Updated: 2026/02/16 14:58:31 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/02/17 13:08:17 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,16 @@ int	ft_atol(char *str, long *num)
 		if (str[i] < '0' || str[i] > '9')
 			return (0);
 		result = result * 10 + (str[i++] - '0');
-		if ((sign == 1 && result > INT_MAX)
-			|| (sign == -1 && result > (long)INT_MAX + 1))
+		if ((result * 10 + (str[i] - '0')) > LONG_MAX)
 			return (0);
 	}
 	*num = result * sign;
 	return (1);
 }
 
-int	validate_number(char *str)
+int	validate_number(char *str, long *num)
 {
-	int		i;
-	long	num;
+	int			i;
 
 	i = 0;
 	if (!str || !str[0])

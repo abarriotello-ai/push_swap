@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 14:03:52 by abarrio           #+#    #+#             */
-/*   Updated: 2026/02/16 17:12:36 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/02/17 12:50:34 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_stack	*parse_split_args(char **split)
 	i = 0;
 	while (split[i])
 	{
-		if (!validate_number(split[i]) || !ft_atol(split[i], &num))
+		if (!validate_number(split[i], &num))
 			return (free_split(split), free_stack(&stack), NULL);
 		new = stack_new((int)num);
 		if (!new)
