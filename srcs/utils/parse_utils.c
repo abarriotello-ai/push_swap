@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 14:03:52 by abarrio           #+#    #+#             */
-/*   Updated: 2026/02/17 12:50:34 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/02/18 13:43:26 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,26 @@ t_stack	*parse_split_args(char **split)
 	}
 	free_split(split);
 	return (stack);
+}
+
+static t_stack	*create_node_and_add(t_stack **stack, char *str)
+{
+	t_stack	*new;
+	long	num;
+
+	if (!validate_number(str) || !ft_atol(str, &num))
+	{
+		free_stack(stack);
+		return (NULL);
+	}
+	new = stack_new((int)num);
+	if (!new)
+	{
+		free_stack(stack);
+		return (NULL);
+	}
+	ft_lstadd_back((t_list **)stack, (t_list *)new);
+	return (*stack);
 }
 
 t_stack	*parse_arguments(int argc, char **argv)
