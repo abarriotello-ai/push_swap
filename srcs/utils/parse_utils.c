@@ -1,98 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_utils.c                                      :+:      :+:    :+:   */
+/*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/16 14:03:52 by abarrio           #+#    #+#             */
-/*   Updated: 2026/02/18 13:43:26 by abarrio          ###   ########.fr       */
+/*   Created: 2026/02/16 12:56:02 by abarrio           #+#    #+#             */
+/*   Updated: 2026/02/17 13:08:17 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	free_split(char **split)
+int	ft_atol(char *str, long *num)
 {
-	int	i;
+	int		i;
+	int		sign;
+	long	result;
 
-	if (!split)
-		return ;
 	i = 0;
-	while (split[i])
+	sign = 1;
+	result = 0;
+	if (str[i] == '-' || str[i] == '+')
+		if (str[i++] == '-')
+			sign = -1;
+	if (!str[i])
+		return (0);
+	while (str[i])
 	{
-		free(split[i]);
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		result = result * 10 + (str[i++] - '0');
+		if ((result * 10 + (str[i] - '0')) > LONG_MAX)
+			return (0);
+	}
+	*num = result * sign;
+	return (1);
+}
+
+int	validate_number(char *str, long *num)
+{
+	int			i;
+
+	i = 0;
+	if (!str || !str[0])
+		return (0);
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (!str[i])
+		return (0);
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
 		i++;
 	}
-	free(split);
-}
-
-t_stack	*parse_split_args(char **split)
-{
-	t_stack	*stack;
-	t_stack	*new;
-	long	num;
-	int		i;
-
-	stack = NULL;
-	i = 0;
-	while (split[i])
-	{
-		if (!validate_number(split[i], &num))
-			return (free_split(split), free_stack(&stack), NULL);
-		new = stack_new((int)num);
-		if (!new)
-			return (free_split(split), free_stack(&stack), NULL);
-		ft_lstadd_back((t_list **)&stack, (t_list *)new);
-		i++;
-	}
-	free_split(split);
-	return (stack);
-}
-
-static t_stack	*create_node_and_add(t_stack **stack, char *str)
-{
-	t_stack	*new;
-	long	num;
-
-	if (!validate_number(str) || !ft_atol(str, &num))
-	{
-		free_stack(stack);
-		return (NULL);
-	}
-	new = stack_new((int)num);
-	if (!new)
-	{
-		free_stack(stack);
-		return (NULL);
-	}
-	ft_lstadd_back((t_list **)stack, (t_list *)new);
-	return (*stack);
-}
-
-t_stack	*parse_arguments(int argc, char **argv)
-{
-	t_stack	*stack;
-	char	**split;
-	int		i;
-
-	if (argc == 2)
-	{
-		split = ft_split(argv[1], ' ');
-		if (!split || !split[0])
-		{
-			if (split)
-				free_split(split);
-			return (NULL);
-		}
-		return (parse_split_args(split));
-	}
-	stack = NULL;
-	i = 0;
-	while (++i < argc)
-	{
-		if (!create_node_and_add(&stack, argv[i]))
-			return (NULL);
-	}
-	return (stack);
+	return (ft_atol(str, &num));
 }
