@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_utils.c                                      :+:      :+:    :+:   */
+/*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 14:03:52 by abarrio           #+#    #+#             */
-/*   Updated: 2026/02/18 13:43:26 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/02/20 14:06:02 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	free_split(char **split)
 	free(split);
 }
 
-t_stack	*parse_split_args(char **split)
+static t_stack	*parse_split_args(char **split)
 {
 	t_stack	*stack;
 	t_stack	*new;
@@ -55,17 +55,11 @@ static t_stack	*create_node_and_add(t_stack **stack, char *str)
 	t_stack	*new;
 	long	num;
 
-	if (!validate_number(str) || !ft_atol(str, &num))
-	{
-		free_stack(stack);
-		return (NULL);
-	}
+	if (!validate_number(str, &num))
+		return (free_stack(stack), NULL);
 	new = stack_new((int)num);
 	if (!new)
-	{
-		free_stack(stack);
-		return (NULL);
-	}
+		return (free_stack(stack), NULL);
 	ft_lstadd_back((t_list **)stack, (t_list *)new);
 	return (*stack);
 }

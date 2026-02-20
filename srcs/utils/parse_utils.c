@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_args.c                                       :+:      :+:    :+:   */
+/*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 12:56:02 by abarrio           #+#    #+#             */
-/*   Updated: 2026/02/17 13:08:17 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/02/20 19:55:51 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atol(char *str, long *num)
+static int	ft_atol(char *str, long *num)
 {
 	int		i;
 	int		sign;
@@ -56,4 +56,24 @@ int	validate_number(char *str, long *num)
 		i++;
 	}
 	return (ft_atol(str, &num));
+}
+
+int	has_duplicates(t_stack *stack)
+{
+	t_stack	*tmp;
+	t_stack	*check;
+
+	tmp = stack;
+	while (tmp)
+	{
+		check = tmp->next;
+		while (check)
+		{
+			if (tmp->value == check->value)
+				return (1);
+			check = check->next;
+		}
+		tmp = tmp->next;
+	}
+	return (0);
 }
