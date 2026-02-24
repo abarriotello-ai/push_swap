@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   stac_utils_2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/24 13:50:35 by abarrio           #+#    #+#             */
-/*   Updated: 2026/02/24 13:54:30 by abarrio          ###   ########.fr       */
+/*   Created: 2026/02/24 13:26:14 by abarrio           #+#    #+#             */
+/*   Updated: 2026/02/24 13:27:49 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push(t_stack **dst, t_stack **src)
+int	stack_min(t_stack *stack)
 {
-	t_stack	*tmp;
+	int	min;
 
-	if (!*src)
-		return ;
-	tmp = *src;
-	*src = (*src)->next;
-	tmp->next = *dst;
-	*dst = tmp;
-}
-
-void	pa(t_stack **stack_a, t_stack **stack_b)
-{
-	push(stack_a, stack_b);
-	ft_printf("pa\n");
-}
-
-void	pb(t_stack **stack_a, t_stack **stack_b)
-{
-	push(stack_b, stack_a);
-	ft_printf("pb\n");
+	if (!stack)
+		return (0);
+	min = stack->value;
+	while (stack)
+	{
+		if (stack->value < min)
+			min = stack->value;
+		stack = stack->next;
+	}
+	return (min);
 }

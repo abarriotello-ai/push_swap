@@ -6,13 +6,13 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 12:56:02 by abarrio           #+#    #+#             */
-/*   Updated: 2026/02/20 19:55:51 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/02/24 12:45:51 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_atol(char *str, long *num)
+static int	ft_atol_check(char *str, long *num)
 {
 	int		i;
 	int		sign;

@@ -6,26 +6,11 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 14:03:52 by abarrio           #+#    #+#             */
-/*   Updated: 2026/02/20 14:06:02 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/02/24 13:43:50 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	free_split(char **split)
-{
-	int	i;
-
-	if (!split)
-		return ;
-	i = 0;
-	while (split[i])
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
-}
 
 static t_stack	*parse_split_args(char **split)
 {
@@ -43,7 +28,7 @@ static t_stack	*parse_split_args(char **split)
 		new = stack_new((int)num);
 		if (!new)
 			return (free_split(split), free_stack(&stack), NULL);
-		ft_lstadd_back((t_list **)&stack, (t_list *)new);
+		stack_add_back(&stack, new);
 		i++;
 	}
 	free_split(split);
@@ -60,7 +45,7 @@ static t_stack	*create_node_and_add(t_stack **stack, char *str)
 	new = stack_new((int)num);
 	if (!new)
 		return (free_stack(stack), NULL);
-	ft_lstadd_back((t_list **)stack, (t_list *)new);
+	stack_add_back(stack, new);
 	return (*stack);
 }
 

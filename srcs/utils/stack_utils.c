@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 12:50:40 by abarrio           #+#    #+#             */
-/*   Updated: 2026/02/19 12:55:17 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/02/24 13:25:25 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,38 @@ t_stack	*stack_new(int value)
 	new->index = -1;
 	new->next = NULL;
 	return (new);
+}
+
+t_stack	*stack_last(t_stack *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
+}
+
+void	stack_add_back(t_stack **stack, t_stack *new)
+{
+	if (!stack || !new)
+		return ;
+	if (!*stack)
+	{
+		*stack = new;
+		return ;
+	}
+	stack_last(*stack)->next = new;
+}
+
+int	stack_size(t_stack *stack)
+{
+	int	size;
+
+	size = 0;
+	while (stack)
+	{
+		size++;
+		stack = stack->next;
+	}
+	return (size);
 }
