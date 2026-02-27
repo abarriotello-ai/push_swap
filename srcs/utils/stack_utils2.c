@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stac_utils_2.c                                     :+:      :+:    :+:   */
+/*   stack_utils2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 13:26:14 by abarrio           #+#    #+#             */
-/*   Updated: 2026/02/24 13:27:49 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/02/27 20:30:22 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,17 @@ int	stack_min(t_stack *stack)
 		stack = stack->next;
 	}
 	return (min);
+}
+
+int	is_sorted(t_stack *stack)
+{
+	if (!stack)
+		return (1);
+	while (stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }
