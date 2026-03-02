@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 20:32:56 by abarrio           #+#    #+#             */
-/*   Updated: 2026/02/15 21:16:18 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/03/02 12:33:46 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	sort_stack(t_stack **stack_a, t_stack **stack_b)
 
 	if (is_sorted(*stack_a))
 		return ;
-	size = ft_lstsize((t_list *)*stack_a);
+	size = stack_size((t_list *)*stack_a);
 	if (size == 2)
 		sa(stack_a);
 	else if (size == 3)

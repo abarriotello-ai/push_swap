@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 17:41:21 by abarrio           #+#    #+#             */
-/*   Updated: 2026/02/24 13:47:16 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/03/02 12:51:51 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_stack	*stack_last(t_stack *stack);
 int		stack_min(t_stack *stack);
 int		stack_max(t_stack *stack);
 int		is_sorted(t_stack *stack);
-int		find_min_pos(t_stack *stack);
+int		find_min_position(t_stack *stack);
 
 /* Memory & Error */
 void	free_stack(t_stack **stack);

@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 13:26:14 by abarrio           #+#    #+#             */
-/*   Updated: 2026/02/27 20:30:22 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/03/02 12:52:26 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,22 @@ int	stack_min(t_stack *stack)
 	return (min);
 }
 
+int	stack_max(t_stack *stack)
+{
+	int	max;
+
+	if (!stack)
+		return (0);
+	max = stack->value;
+	while (stack)
+	{
+		if (stack->value > max)
+			max = stack->value;
+		stack = stack->next;
+	}
+	return (max);
+}
+
 int	is_sorted(t_stack *stack)
 {
 	if (!stack)
@@ -39,4 +55,28 @@ int	is_sorted(t_stack *stack)
 		stack = stack->next;
 	}
 	return (1);
+}
+
+int	find_min_position(t_stack *stack)
+{
+	int	min;
+	int	position;
+	int	min_position;
+
+	if (!stack)
+		return (0);
+	min = stack_min(stack);
+	position = 0;
+	min_position = 0;
+	while (stack)
+	{
+		if (stack->value == min)
+		{
+			min_position = position;
+			break ;
+		}
+		position++;
+		stack = stack->next;
+	}
+	return (min_position);
 }
