@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 13:03:03 by abarrio           #+#    #+#             */
-/*   Updated: 2026/03/02 20:16:13 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/03/03 20:27:25 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ static void	sort_array(int *arr, int size)
 	}
 }
 
-static int	find_index(int *arr, int size, int value)
+static int	find_index(int *arr, int value)
 {
 	int	i;
 
 	i = 0;
-	while (i < size)
+	while (arr[i])
 	{
 		if (arr[i] == value)
 			return (i);
@@ -83,7 +83,7 @@ void	index_stack(t_stack *stack)
 	tmp = stack;
 	while (tmp)
 	{
-		tmp->index = find_index(sorted_array, size, tmp->value);
+		tmp->index = find_index(sorted_array, tmp->value);
 		tmp = tmp->next;
 	}
 	free(sorted_array);
