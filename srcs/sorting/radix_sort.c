@@ -6,13 +6,13 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 20:28:28 by abarrio           #+#    #+#             */
-/*   Updated: 2026/03/03 20:28:49 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/03/05 13:25:52 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_max_bits(int stack_size)
+static int	get_max_bits(int stack_size)
 {
 	int	max_bits;
 	int	max_num;
@@ -27,9 +27,9 @@ int	get_max_bits(int stack_size)
 	return (max_bits);
 }
 
-int	get_bit(int num, int bit)
+static int	get_bit(int index, int bit)
 {
-	return ((num >> bit) & 1);
+	return ((index >> bit) & 1);
 }
 
 static void	sort_by_bit(t_stack **stack_a, t_stack **stack_b, int bit, int size)

@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 12:56:02 by abarrio           #+#    #+#             */
-/*   Updated: 2026/02/24 12:45:51 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/03/05 14:41:57 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	ft_atol_check(char *str, long *num)
 
 int	validate_number(char *str, long *num)
 {
-	int			i;
+	int	i;
 
 	i = 0;
 	if (!str || !str[0])
@@ -55,7 +55,7 @@ int	validate_number(char *str, long *num)
 			return (0);
 		i++;
 	}
-	return (ft_atol(str, &num));
+	return (ft_atol_check(str, num));
 }
 
 int	has_duplicates(t_stack *stack)

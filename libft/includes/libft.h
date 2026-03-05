@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 17:16:21 by abarrio           #+#    #+#             */
-/*   Updated: 2026/02/14 13:58:18 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/03/05 14:13:35 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,19 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 /* ************************************************************************** */
 
 int		ft_printf(char const *format, ...);
+
+/* printers */
+int		ft_print_char(int c);							// %c
+int		ft_print_str(char *s);							// %s
+int		ft_print_nbr(int n);							// %d %i
+int		ft_print_unbr(unsigned int n);					// %u
+int		ft_print_hex(unsigned int n, int uppercase);	// %x %X
+int		ft_print_ptr(void *ptr);						// %p
+
+/* utils específicos de printf */
+int		ft_putchar_count(char c);
+int		ft_putstr_count(char *s);
+int		ft_putnbr_base_count(unsigned long n, char *base);
 
 /* ************************************************************************** */
 /*                            GET_NEXT_LINE                                   */

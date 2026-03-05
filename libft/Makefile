@@ -6,7 +6,7 @@
 #    By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/14 14:01:21 by abarrio           #+#    #+#              #
-#    Updated: 2026/02/14 14:16:06 by abarrio          ###   ########.fr        #
+#    Updated: 2026/03/05 14:15:44 by abarrio          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ PRINTF_SRCS	= ft_printf.c ft_print_char.c ft_print_str.c ft_print_ptr.c \
 #                           GET_NEXT_LINE SOURCES                              #
 # **************************************************************************** #
 
-GNL_SRCS	= get_next_line.c get_next_line_utils.c
+GNL_SRCS	= get_next_line.c
 
 # **************************************************************************** #
 #                                  OBJECTS                                     #

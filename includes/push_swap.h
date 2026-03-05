@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 17:41:21 by abarrio           #+#    #+#             */
-/*   Updated: 2026/03/02 12:51:51 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/03/05 13:52:35 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	stack_add_back(t_stack **stack, t_stack *new);
 int		stack_size(t_stack *stack);
 t_stack	*stack_last(t_stack *stack);
 int		stack_min(t_stack *stack);
-int		stack_max(t_stack *stack);
 int		is_sorted(t_stack *stack);
 int		find_min_position(t_stack *stack);
 
@@ -64,9 +63,5 @@ void	free_stack(t_stack **stack);
 void	free_split(char **split);
 void	ft_error(t_stack **stack);
 void	exit_program(t_stack **stack_a, t_stack **stack_b);
-
-/* Radix Utils */
-int		get_max_bits(int stack_size);
-int		get_bit(int num, int bit);
 
 #endif
