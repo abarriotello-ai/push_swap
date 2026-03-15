@@ -6,7 +6,7 @@
 #    By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/05 13:36:48 by abarrio           #+#    #+#              #
-#    Updated: 2026/03/05 14:34:33 by abarrio          ###   ########.fr        #
+#    Updated: 2026/03/14 19:12:33 by abarrio          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,11 @@ SRCS		= srcs/main.c \
 			  srcs/sorting/sort_three.c \
 			  srcs/sorting/sort_small.c \
 			  srcs/sorting/indexing.c \
-			  srcs/sorting/radix_sort.c
+			  srcs/sorting/radix_sort.c \
+			  srcs/sorting/turk_sort.c \
+			  srcs/sorting/turk_costs.c \
+			  srcs/utils/turk_utils.c \
+			  srcs/sorting/turk_positions.c
 
 OBJS 		= $(SRCS:.c=.o)
 

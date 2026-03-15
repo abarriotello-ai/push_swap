@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 13:26:14 by abarrio           #+#    #+#             */
-/*   Updated: 2026/03/05 13:53:41 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/03/14 19:18:24 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	stack_min(t_stack *stack)
 	return (min);
 }
 
-int	find_min_position(t_stack *stack)
+int	find_min_pos(t_stack *stack)
 {
 	int	min;
 	int	position;

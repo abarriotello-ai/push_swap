@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 20:32:56 by abarrio           #+#    #+#             */
-/*   Updated: 2026/03/05 14:38:59 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/03/14 19:19:03 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,7 @@ static void	sort_stack(t_stack **stack_a, t_stack **stack_b)
 	else if (size <= 5)
 		sort_small(stack_a, stack_b);
 	else
-	{
-		index_stack(*stack_a);
-		radix_sort(stack_a, stack_b);
-	}
+		turk_sort(stack_a, stack_b);
 }
 
 int	main(int argc, char **argv)
