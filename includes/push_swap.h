@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 20:06:25 by abarrio           #+#    #+#             */
-/*   Updated: 2026/03/14 20:06:29 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/03/15 21:08:14 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct s_stack
 t_stack	*parse_arguments(int argc, char **argv);
 
 /* Check if string is a valid integer within INT_MIN to INT_MAX */
-int		validate_number(char *str);
+int		validate_number(char *str, long *num);
 
 /* Check if stack contains duplicate values */
 int		has_duplicates(t_stack *stack);

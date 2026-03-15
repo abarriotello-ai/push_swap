@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 12:50:40 by abarrio           #+#    #+#             */
-/*   Updated: 2026/02/24 13:25:25 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/03/15 21:09:05 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_stack	*stack_new(int value)
 	if (!new)
 		return (NULL);
 	new->value = value;
-	new->index = -1;
 	new->next = NULL;
 	return (new);
 }

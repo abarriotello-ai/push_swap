@@ -6,7 +6,7 @@
 #    By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/05 13:36:48 by abarrio           #+#    #+#              #
-#    Updated: 2026/03/14 19:12:33 by abarrio          ###   ########.fr        #
+#    Updated: 2026/03/15 21:10:59 by abarrio          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS		= srcs/main.c \
 			  srcs/utils/parse_utils.c \
 			  srcs/utils/stack_utils.c \
 			  srcs/utils/stack_utils2.c \
+			  srcs/utils/turk_utils.c \
 			  srcs/utils/errors.c \
 			  srcs/operations/push.c \
 			  srcs/operations/swap.c \
@@ -31,11 +32,8 @@ SRCS		= srcs/main.c \
 			  srcs/operations/reverse_rotate.c \
 			  srcs/sorting/sort_three.c \
 			  srcs/sorting/sort_small.c \
-			  srcs/sorting/indexing.c \
-			  srcs/sorting/radix_sort.c \
 			  srcs/sorting/turk_sort.c \
 			  srcs/sorting/turk_costs.c \
-			  srcs/utils/turk_utils.c \
 			  srcs/sorting/turk_positions.c
 
 OBJS 		= $(SRCS:.c=.o)

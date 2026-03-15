@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 20:27:04 by abarrio           #+#    #+#             */
-/*   Updated: 2026/03/02 12:59:41 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/03/15 21:10:03 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	move_min_to_top(t_stack **stack_a, int size)
 {
 	int	min_position;
 
-	min_position = find_min_position(*stack_a);
+	min_position = find_min_pos(*stack_a);
 	if (min_position <= size / 2)
 	{
 		while (min_position > 0)
