@@ -562,7 +562,7 @@ For evaluators and self-assessment:
 - [ ] Algorithm clearly explained
 - [ ] Usage examples provided
 - [ ] Resources documented
-- [ ] Gemartin99 push_swap tester
+- [ ] Gemartin99 push_swap tester (https://github.com/gemartin99/Push-Swap-Tester)
 
 ---
 
