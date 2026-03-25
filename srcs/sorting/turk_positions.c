@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 11:54:23 by abarrio           #+#    #+#             */
-/*   Updated: 2026/03/14 18:50:24 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/03/25 15:11:55 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,19 @@ static int	find_target_position(t_stack *stack, int value)
 	t_stack	*tmp;
 
 	target_pos = 0;
-	best_match = INT_MIN;
+	best_match = INT_MAX;
 	tmp = stack;
 	while (tmp)
 	{
-		if (tmp->value < value && tmp->value > best_match)
+		if (tmp->value > value && tmp->value < best_match)
 		{
 			best_match = tmp->value;
 			target_pos = tmp->pos;
 		}
 		tmp = tmp->next;
 	}
-	if (best_match == INT_MIN)
-		target_pos = find_highest_value_pos(stack);
+	if (best_match == INT_MAX)
+		target_pos = find_min_pos(stack);
 	return (target_pos);
 }
 

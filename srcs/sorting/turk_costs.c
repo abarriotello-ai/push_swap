@@ -6,18 +6,11 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 19:04:49 by abarrio           #+#    #+#             */
-/*   Updated: 2026/03/14 20:08:38 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/03/25 12:04:00 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	ft_abs(int n)
-{
-	if (n < 0)
-		return (-n);
-	return (n);
-}
 
 void	calculate_costs(t_stack *stack_a, t_stack *stack_b)
 {
@@ -63,28 +56,26 @@ static t_stack	*find_cheapest(t_stack *stack_b)
 	return (cheapest);
 }
 
-void	execute_cheapest_move(t_stack **stack_a, t_stack **stack_b)
+static void	do_double_rotations(t_stack **stack_a, t_stack **stack_b,
+				t_stack *cheapest)
 {
-	t_stack	*cheapest;
-
-	cheapest = find_cheapest(*stack_b);
-	while (cheapest->cost_a != 0 && cheapest->cost_b != 0)
+	while (cheapest->cost_a > 0 && cheapest->cost_b > 0)
 	{
-		if (cheapest->cost_a > 0 && cheapest->cost_b > 0)
-		{
-			rr(stack_a, stack_b);
-			cheapest->cost_a--;
-			cheapest->cost_b--;
-		}
-		else if (cheapest->cost_a < 0 && cheapest->cost_b < 0)
-		{
-			rrr(stack_a, stack_b);
-			cheapest->cost_a++;
-			cheapest->cost_b++;
-		}
-		else
-			break ;
+		rr(stack_a, stack_b);
+		cheapest->cost_a--;
+		cheapest->cost_b--;
 	}
+	while (cheapest->cost_a < 0 && cheapest->cost_b < 0)
+	{
+		rrr(stack_a, stack_b);
+		cheapest->cost_a++;
+		cheapest->cost_b++;
+	}
+}
+
+static void	do_individual_rotations(t_stack **stack_a, t_stack **stack_b,
+				t_stack *cheapest)
+{
 	while (cheapest->cost_a > 0 && cheapest->cost_a--)
 		ra(stack_a);
 	while (cheapest->cost_a < 0 && cheapest->cost_a++)
@@ -93,5 +84,14 @@ void	execute_cheapest_move(t_stack **stack_a, t_stack **stack_b)
 		rb(stack_b);
 	while (cheapest->cost_b < 0 && cheapest->cost_b++)
 		rrb(stack_b);
+}
+
+void	execute_cheapest_move(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack	*cheapest;
+
+	cheapest = find_cheapest(*stack_b);
+	do_double_rotations(stack_a, stack_b, cheapest);
+	do_individual_rotations(stack_a, stack_b, cheapest);
 	pa(stack_a, stack_b);
 }

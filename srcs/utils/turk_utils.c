@@ -6,11 +6,18 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 19:05:50 by abarrio           #+#    #+#             */
-/*   Updated: 2026/03/14 19:50:49 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/03/25 12:01:01 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_abs(int n)
+{
+	if (n < 0)
+		return (-n);
+	return (n);
+}
 
 int	find_highest_value_pos(t_stack *stack)
 {

@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 12:56:02 by abarrio           #+#    #+#             */
-/*   Updated: 2026/03/05 14:41:57 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/03/25 13:16:51 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,28 @@
 
 static int	ft_atol_check(char *str, long *num)
 {
-	int		i;
-	int		sign;
-	long	result;
+	int	sign;
+	int	digit;
 
-	i = 0;
+	*num = 0;
 	sign = 1;
-	result = 0;
-	if (str[i] == '-' || str[i] == '+')
-		if (str[i++] == '-')
+	if (*str == '-' || *str == '+')
+		if (*str++ == '-')
 			sign = -1;
-	if (!str[i])
+	if (!*str)
 		return (0);
-	while (str[i])
+	while (*str)
 	{
-		if (str[i] < '0' || str[i] > '9')
+		if (!ft_isdigit(*str))
 			return (0);
-		result = result * 10 + (str[i++] - '0');
-		if ((result * 10 + (str[i] - '0')) > LONG_MAX)
+		digit = *str - '0';
+		if ((sign == 1 && *num > (INT_MAX - digit) / 10)
+			|| (sign == -1 && *num > (-(long)INT_MIN - digit) / 10))
 			return (0);
+		*num = *num * 10 + digit;
+		str++;
 	}
-	*num = result * sign;
+	*num *= sign;
 	return (1);
 }
 

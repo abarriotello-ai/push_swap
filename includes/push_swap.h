@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 20:06:25 by abarrio           #+#    #+#             */
-/*   Updated: 2026/03/15 21:08:14 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/03/25 12:02:30 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,9 @@ void	execute_cheapest_move(t_stack **stack_a, t_stack **stack_b);
 
 /* Rotate stack A until smallest element is on top */
 void	shift_stack(t_stack **stack_a);
+
+/* Return absolute value of an integer */
+int		ft_abs(int n);
 
 /* ========================================================================== */
 /*                           STACK UTILITIES                                  */

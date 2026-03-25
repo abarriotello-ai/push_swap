@@ -493,7 +493,8 @@ The Turk algorithm was chosen for elements 6+ because:
 | **Explainability** | Intuitive | More technical |
 | **Maintenance** | Easy to debug | Complex edge cases |
 
-Both algorithms perform excellently for this project. The Turk algorithm was selected for its clarity and ease of explanation.
+Both algorithms perform well for this project. The Turk algorithm was selected for its more optimized 
+cost based calculations design, where less operations are required for achieving the required benchmarks.
 
 ---
 
@@ -561,6 +562,7 @@ For evaluators and self-assessment:
 - [ ] Algorithm clearly explained
 - [ ] Usage examples provided
 - [ ] Resources documented
+- [ ] Gemartin99 push_swap tester
 
 ---
 
